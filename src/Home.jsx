@@ -68,14 +68,13 @@ function Home() {
 							className="relative rounded-full overflow-hidden w-64 h-64 sm:w-72 sm:h-72 border-4 border-gray-300 dark:border-gray-600 shadow-2xl dark:shadow-gray-900/50 card-3d"
 							initial={{ opacity: 0, scale: 0.8 }}
 							animate={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.8, delay: 0.2 }}
 							whileHover={{
 								scale: 1.05,
 								rotateX: 10,
 								rotateY: 10,
 								boxShadow: "0 25px 50px -15px rgba(59,130,246,0.5)",
 							}}
-							transition={{ duration: 0.6, ease: "easeOut" }}
+							transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
 						>
 							<motion.img
 								src={me}
@@ -101,7 +100,6 @@ function Home() {
 								className="px-4 py-1 text-xl sm:text-2xl font-bold rounded-full bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 text-gray-700 dark:text-gray-200 cursor-default button-3d border border-blue-300/50 dark:border-blue-700/50"
 								initial={{ opacity: 0, y: 20, rotateZ: -5 }}
 								animate={{ opacity: 1, y: 0, rotateZ: 0 }}
-								transition={{ duration: 0.6, delay: 0.1 }}
 								whileHover={{ 
 									scale: 1.08, 
 									y: -4,
@@ -109,7 +107,7 @@ function Home() {
 									boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)"
 								}}
 								whileTap={{ scale: 0.98 }}
-								transition={{ type: "spring", stiffness: 300, damping: 20 }}
+								transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
 							>
 								Mark Jordan Javier
 							</motion.span>
@@ -273,14 +271,13 @@ function Home() {
 							className="relative rounded-full overflow-hidden w-80 h-80 border-4 border-gray-300 dark:border-gray-600 shadow-2xl dark:shadow-gray-900/50 card-3d"
 							initial={{ opacity: 0, scale: 0.8, x: 50 }}
 							animate={{ opacity: 1, scale: 1, x: 0 }}
-							transition={{ duration: 0.8, delay: 0.3 }}
 							whileHover={{
 								scale: 1.08,
 								rotateX: 15,
 								rotateY: 15,
 								boxShadow: "0 30px 60px -15px rgba(59,130,246,0.6)",
 							}}
-							transition={{ duration: 0.6, ease: "easeOut" }}
+							transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
 						>
 							<motion.img
 								src={me}
