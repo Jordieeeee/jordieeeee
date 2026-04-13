@@ -15,9 +15,7 @@ import {
 import { SiTailwindcss, SiMysql, SiJavascript, SiN8N } from "react-icons/si";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef, useCallback } from "react";
-import resumePdf from "./assets/resume/RESUME.pdf";
 import cvPDF from "./assets/cv/markjordanjavier_cv.pdf";
-import me from "./assets/me/jordie.jpg";
 import AsciiPortrait from "./components/AsciiPortrait";
 import TiltCard from "./components/TiltCard";
 

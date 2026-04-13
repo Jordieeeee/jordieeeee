@@ -15,6 +15,10 @@ import {
 	SiPycharm,
 	SiApachenetbeanside,
 	SiXcode,
+	SiNodedotjs,
+	SiExpress,
+	SiMongodb,
+	SiPostman,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { TbAutomation, TbCursorText } from "react-icons/tb";
@@ -40,13 +44,17 @@ const techLogos = [
 	{ name: "PyCharm", icon: SiPycharm, color: "#21D789" },
 	{ name: "NetBeans", icon: SiApachenetbeanside, color: "#1B6AC6" },
 	{ name: "Xcode", icon: SiXcode, color: "#147EFB" },
+	{ name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+	{ name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
+	{ name: "MongoDB", icon: SiMongodb, color: "#13AA52" },
+	{ name: "Postman", icon: SiPostman, color: "#FF6C37" },
 ];
 
 // Split logos into 3 rows
 const rows = [
-	techLogos.slice(0, 7),
-	techLogos.slice(7, 13),
-	techLogos.slice(13, 19),
+	techLogos.slice(0, 8),
+	techLogos.slice(8, 16),
+	techLogos.slice(16, 23),
 ];
 
 function MarqueeRow({ items, reverse = false }) {
