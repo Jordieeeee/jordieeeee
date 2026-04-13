@@ -15,6 +15,10 @@ import {
 	SiPycharm,
 	SiApachenetbeanside,
 	SiXcode,
+	SiNodedotjs,
+	SiExpress,
+	SiMongodb,
+	SiPostman,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { TbAutomation, TbCursorText } from "react-icons/tb";
@@ -40,6 +44,10 @@ const techItems = [
 	{ name: "PyCharm", icon: SiPycharm, color: "#21D789" },
 	{ name: "NetBeans", icon: SiApachenetbeanside, color: "#1B6AC6" },
 	{ name: "Xcode", icon: SiXcode, color: "#147EFB" },
+	{ name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+	{ name: "Express.js", icon: SiExpress, color: "#000000" },
+	{ name: "MongoDB", icon: SiMongodb, color: "#13AA52" },
+	{ name: "Postman", icon: SiPostman, color: "#FF6C37" },
 ];
 
 const containerVariants = {

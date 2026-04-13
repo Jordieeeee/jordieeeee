@@ -24,6 +24,10 @@ const techColors = {
 	PyCharm: { bg: "#21D789", text: "#000" },
 	NetBeans: { bg: "#1B6AC6", text: "#fff" },
 	Xcode: { bg: "#147EFB", text: "#fff" },
+	"Node.js": { bg: "#339933", text: "#fff" },
+	"Express.js": { bg: "#000000", text: "#fff" },
+	MongoDB: { bg: "#13AA52", text: "#fff" },
+	Postman: { bg: "#FF6C37", text: "#fff" },
 };
 
 function TechPill({ tool }) {
@@ -65,8 +69,11 @@ const techCategories = [
 		label: "Frontend",
 		items: ["JavaScript", "React", "Tailwind CSS", "Prettier"],
 	},
-	{ label: "Backend", items: ["PHP", "MySQL", "Python", "Java"] },
-	{ label: "Cloud", items: ["Docker", "XAMPP"] },
+	{
+		label: "Backend",
+		items: ["PHP", "MySQL", "Python", "Java", "Node.js", "Express.js"],
+	},
+	{ label: "Cloud", items: ["Docker", "XAMPP", "MongoDB"] },
 	{ label: "CMS & No-Code", items: ["n8n"] },
 	{
 		label: "Developer Tools",
@@ -78,6 +85,7 @@ const techCategories = [
 			"PyCharm",
 			"NetBeans",
 			"Xcode",
+			"Postman",
 		],
 	},
 ];
@@ -229,10 +237,14 @@ function About() {
 								variants={fadeUp}
 								className="text-sm leading-6 text-gray-600 dark:text-gray-300"
 							>
-								I specialize in frontend and backend development using modern
-								tools such as React, Tailwind CSS, PHP, MySQL, and JavaScript. I
-								enjoy solving problems, designing interfaces, and continuously
-								learning new technologies.
+								I specialize in frontend and backend development as a{" "}
+								<span className="font-semibold text-gray-900 dark:text-white">
+									MERN Stack Developer
+								</span>{" "}
+								(MongoDB, Express.js, React, Node.js), alongside modern tools
+								such as Tailwind CSS, PHP, MySQL, and Python. I enjoy solving
+								problems, designing interfaces, and continuously learning new
+								technologies.
 							</motion.p>
 						</motion.div>
 

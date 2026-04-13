@@ -19,9 +19,18 @@ import cert4 from "./assets/cert/cert4.jpg";
 import certMicroPBI from "./assets/cert/MicroPBI.jpg";
 import certClaudeInAction from "./assets/cert/ClaudeInAction.jpg";
 import certClaude101 from "./assets/cert/Claude_101.jpg";
+import certClaudeAgent from "./assets/cert/Claude_Agent.jpg";
 
 /* ─── Data ───────────────────────────────────────────────── */
 const certificates = [
+	{
+		title: "Claude Agent",
+		org: "Anthropic",
+		year: "2026",
+		img: certClaudeAgent,
+		category: "Professional",
+		verified: true,
+	},
 	{
 		title: "Claude 101",
 		org: "Anthropic",
