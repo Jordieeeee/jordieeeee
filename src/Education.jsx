@@ -108,14 +108,18 @@ const ImageCarousel = ({ images, title, dateBadge }) => {
 										alt={`${title} - ${imgIndex + 1}`}
 										loading="lazy"
 										decoding="async"
-										style={{ 
+										style={{
 											transition: "opacity 0.3s ease",
 											opacity: 1,
 											width: "100%",
 											height: "100%",
-											objectFit: "cover"
+											objectFit: "cover",
 										}}
-										className={isFront ? "group-hover:scale-105 transition-transform duration-700 ease-out" : ""}
+										className={
+											isFront
+												? "group-hover:scale-105 transition-transform duration-700 ease-out"
+												: ""
+										}
 									/>
 									{isFront && (
 										<>
@@ -398,7 +402,10 @@ function Projects() {
 							</motion.div>
 
 							{/* Focus Areas */}
-							<motion.div variants={fadeUpVariants} className="lg:w-60 shrink-0">
+							<motion.div
+								variants={fadeUpVariants}
+								className="lg:w-60 shrink-0"
+							>
 								<p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
 									Focus Areas
 								</p>
@@ -439,7 +446,10 @@ function Projects() {
 								Key Skills Learned
 							</h3>
 						</motion.div>
-						<motion.div variants={fadeUpVariants} className="flex flex-wrap gap-2">
+						<motion.div
+							variants={fadeUpVariants}
+							className="flex flex-wrap gap-2"
+						>
 							{[
 								"Object-Oriented Programming",
 								"Database Design",
