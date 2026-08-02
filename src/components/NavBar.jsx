@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
 	motion,
 	AnimatePresence,
@@ -8,15 +8,7 @@ import {
 } from "framer-motion";
 
 // Dock icon component with magnification effect
-function DockIcon({
-	mouseX,
-	item,
-	index,
-	isActive,
-	onClick,
-	onMouseEnter,
-	onMouseLeave,
-}) {
+function DockIcon({ mouseX, item, isActive, onClick }) {
 	const ref = useRef(null);
 
 	const distance = useTransform(mouseX, (val) => {
@@ -43,43 +35,78 @@ function DockIcon({
 	const height = width;
 
 	return (
-		<motion.button
-			ref={ref}
-			style={{ width, height }}
-			onClick={onClick}
-			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
-			aria-label={item.label}
-			className={`
-				relative
-				flex items-center justify-center
-				rounded-full
-				${isActive ? "nav-button-active" : "nav-button"}
-			`}
-		>
-			<div className="nav-tooltip">{item.label}</div>
-			<div className="nav-icon">{item.icon}</div>
-		</motion.button>
+		// Wrapper carries the entrance animation so it never fights the
+		// hover / active transforms living on the button itself.
+		<div className="dock-item">
+			<motion.button
+				ref={ref}
+				style={{ width, height }}
+				onClick={onClick}
+				aria-label={item.label}
+				className={`
+					relative
+					flex items-center justify-center
+					rounded-full
+					${isActive ? "nav-button-active" : "nav-button"}
+				`}
+			>
+				<div className="nav-tooltip">{item.label}</div>
+				<div className="nav-icon">{item.icon}</div>
+			</motion.button>
+		</div>
 	);
 }
 
+// How long the page must sit still before the dock retreats
+const DOCK_IDLE_HIDE_MS = 1500;
+
 function NavBar() {
 	const [active, setActive] = useState("home");
-	const [hoveredIndex, setHoveredIndex] = useState(null);
+	const [mounted, setMounted] = useState(false);
+	const [hidden, setHidden] = useState(false);
 	const mouseX = useMotionValue(Infinity);
 
-	// Track active section
+	const hideTimer = useRef(null);
+	const pointerOver = useRef(false);
+
+	// Arm the retreat. Never fires while a pointer is on the dock — it must not
+	// slide away from under someone who is reaching for it.
+	const scheduleHide = useCallback(() => {
+		clearTimeout(hideTimer.current);
+		if (pointerOver.current) return;
+		hideTimer.current = setTimeout(() => setHidden(true), DOCK_IDLE_HIDE_MS);
+	}, []);
+
+	// Any scroll wakes the dock; stillness puts it back to sleep.
+	const wake = useCallback(() => {
+		setHidden(false);
+		scheduleHide();
+	}, [scheduleHide]);
+
+	// Entrance: let the hero paint first, then slide the dock up into view
+	useEffect(() => {
+		const id = setTimeout(() => setMounted(true), 250);
+		return () => clearTimeout(id);
+	}, []);
+
+	useEffect(() => () => clearTimeout(hideTimer.current), []);
+
+	// Active section tracking + wake-on-scroll
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll("section[id]"));
 
 		if (sections.length === 0) return;
 
-		const handleScroll = () => {
-			const scrollPosition = window.scrollY + window.innerHeight / 2;
+		let ticking = false;
+
+		const update = () => {
+			ticking = false;
+			const y = window.scrollY;
+
+			const scrollPosition = y + window.innerHeight / 2;
 			let currentSection = sections[0].id;
 			for (let section of sections) {
-				const rect = section.getBoundingClientRect();
-				const sectionTop = window.scrollY + rect.top;
+				const sectionTop = y + section.getBoundingClientRect().top;
 				if (scrollPosition >= sectionTop) {
 					currentSection = section.id;
 				}
@@ -87,13 +114,22 @@ function NavBar() {
 			setActive(currentSection);
 		};
 
+		// rAF-throttled: the section loop reads layout, so it must run once per frame
+		const handleScroll = () => {
+			wake();
+			if (ticking) return;
+			ticking = true;
+			requestAnimationFrame(update);
+		};
+
 		window.addEventListener("scroll", handleScroll, { passive: true });
-		handleScroll(); // set on mount
+		update(); // set active section on mount
+		scheduleHide(); // start the idle countdown from load
 
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, []);
+	}, [wake, scheduleHide]);
 
 	const navItems = [
 		{
@@ -125,6 +161,23 @@ function NavBar() {
 			),
 		},
 		{
+			id: "education",
+			label: "Education",
+			icon: (
+				<svg
+					className="w-7 sm:w-7 md:w-8 h-7 sm:h-7 md:h-8"
+					viewBox="0 0 128 128"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M25.6 59.7v27.7s18.6 10.7 37.5 10.7c19.5 0 39.3-10.7 39.3-10.7V59.7L64 76.8 25.6 59.7zm91.7 25.6v-6.4h-2.1V53.3l-6.4 4.3v21.3h-2.1v6.4h2.1l-4.3 21.3h14.9l-4.3-21.3h2.2zm-10.6-32L72.6 49s-6 1.9-8.5 2.1c-4.3.4-6.3-.7-6.4-4.3-.1-3.6.9-5.7 6.4-6.4 5.5-.7 8.5 4.3 8.5 4.3l40.5 6.4 14.9-6.4-64-23.4L0 44.8l64 27.7 42.7-19.2z"
+						fill="currentColor"
+					/>
+				</svg>
+			),
+		},
+		{
 			id: "profile",
 			label: "Profile",
 			icon: (
@@ -152,23 +205,6 @@ function NavBar() {
 							strokeLinejoin="round"
 						></path>{" "}
 					</g>
-				</svg>
-			),
-		},
-		{
-			id: "education",
-			label: "Education",
-			icon: (
-				<svg
-					className="w-7 sm:w-7 md:w-8 h-7 sm:h-7 md:h-8"
-					viewBox="0 0 128 128"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M25.6 59.7v27.7s18.6 10.7 37.5 10.7c19.5 0 39.3-10.7 39.3-10.7V59.7L64 76.8 25.6 59.7zm91.7 25.6v-6.4h-2.1V53.3l-6.4 4.3v21.3h-2.1v6.4h2.1l-4.3 21.3h14.9l-4.3-21.3h2.2zm-10.6-32L72.6 49s-6 1.9-8.5 2.1c-4.3.4-6.3-.7-6.4-4.3-.1-3.6.9-5.7 6.4-6.4 5.5-.7 8.5 4.3 8.5 4.3l40.5 6.4 14.9-6.4-64-23.4L0 44.8l64 27.7 42.7-19.2z"
-						fill="currentColor"
-					/>
 				</svg>
 			),
 		},
@@ -256,17 +292,16 @@ function NavBar() {
 					</g>
 				</svg>
 			),
-		},
-	];
+		},];
 
 	return (
-		<motion.nav
-			initial={{ y: 100, opacity: 0 }}
-			animate={{ y: 0, opacity: 1 }}
-			transition={{ duration: 0.6, ease: "easeInOut" }}
+		<nav
+			data-mounted={mounted}
+			data-hidden={hidden}
 			onMouseMove={(e) => mouseX.set(e.pageX)}
 			onMouseLeave={() => mouseX.set(Infinity)}
 			className="
+				dock
 				fixed
 				left-0
 				right-0
@@ -278,13 +313,73 @@ function NavBar() {
 			"
 		>
 			<style>{`
-				/* Floating idle animation */
-				@keyframes float {
-					0%, 100% {
-						transform: translateY(0px);
+				/* Dock enter / hide-on-scroll.
+				   Enters upward on load, leaves downward on scroll — same edge,
+				   same curve, so the motion reads as one object coming and going. */
+				.dock {
+					transform: translateY(0);
+					opacity: 1;
+					transition:
+						transform 260ms cubic-bezier(0.32, 0.72, 0, 1),
+						opacity 180ms ease-out;
+					will-change: transform;
+				}
+
+				/* translateY(100%) is the dock's own height, so it always clears
+				   the viewport edge regardless of icon size or safe-area inset. */
+				.dock[data-mounted="false"],
+				.dock[data-hidden="true"] {
+					transform: translateY(calc(100% + env(safe-area-inset-bottom) + 1.5rem));
+					opacity: 0;
+				}
+
+				/* Never let an invisible dock swallow clicks */
+				.dock[data-mounted="false"] > *,
+				.dock[data-hidden="true"] > * {
+					pointer-events: none;
+				}
+
+				/* First-visit only: the icons assemble as the bar rises, so the
+				   dock reads as five destinations rather than one slab. Plays
+				   once on mount — the scroll hide/show never re-triggers it. */
+				.dock-item {
+					display: flex;
+				}
+
+				@keyframes dock-item-in {
+					from {
+						opacity: 0;
+						transform: translateY(10px) scale(0.92);
 					}
-					50% {
-						transform: translateY(-2px);
+					to {
+						opacity: 1;
+						transform: translateY(0) scale(1);
+					}
+				}
+
+				/* 'backwards' (not 'forwards'): holds the from-state during the
+				   delay, then hands the transform back to CSS so :hover and
+				   .nav-button-active keep working. */
+				.dock[data-mounted="true"] .dock-item {
+					animation: dock-item-in 260ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
+				}
+				.dock[data-mounted="true"] .dock-item:nth-child(1) { animation-delay: 100ms; }
+				.dock[data-mounted="true"] .dock-item:nth-child(2) { animation-delay: 140ms; }
+				.dock[data-mounted="true"] .dock-item:nth-child(3) { animation-delay: 180ms; }
+				.dock[data-mounted="true"] .dock-item:nth-child(4) { animation-delay: 220ms; }
+				.dock[data-mounted="true"] .dock-item:nth-child(5) { animation-delay: 260ms; }
+
+				@media (prefers-reduced-motion: reduce) {
+					.dock {
+						transition: opacity 150ms ease-out;
+					}
+					.dock[data-mounted="false"],
+					.dock[data-hidden="true"] {
+						transform: none;
+						opacity: 0;
+					}
+					.dock[data-mounted="true"] .dock-item {
+						animation: none;
 					}
 				}
 
@@ -310,7 +405,6 @@ function NavBar() {
 						0 2px 8px rgba(0, 0, 0, 0.05),
 						inset 0 1px 0 rgba(255, 255, 255, 0.3),
 						inset 0 -1px 0 rgba(0, 0, 0, 0.05);
-					animation: float 5s ease-in-out infinite;
 				}
 
 				/* Dark mode glassmorphism */
@@ -509,8 +603,17 @@ function NavBar() {
 					isolate
 				"
 				style={{ contain: "layout" }}
+				onPointerEnter={() => {
+					pointerOver.current = true;
+					clearTimeout(hideTimer.current);
+					setHidden(false);
+				}}
+				onPointerLeave={() => {
+					pointerOver.current = false;
+					wake();
+				}}
 			>
-				{navItems.map((item, index) => {
+				{navItems.map((item) => {
 					const isActive = active === item.id;
 
 					return (
@@ -518,7 +621,6 @@ function NavBar() {
 							key={item.id}
 							mouseX={mouseX}
 							item={item}
-							index={index}
 							isActive={isActive}
 							onClick={() => {
 								setActive(item.id);
@@ -540,13 +642,11 @@ function NavBar() {
 									window.dispatchEvent(new Event("hashchange"));
 								}
 							}}
-							onMouseEnter={() => setHoveredIndex(index)}
-							onMouseLeave={() => setHoveredIndex(null)}
 						/>
 					);
 				})}
 			</div>
-		</motion.nav>
+		</nav>
 	);
 }
 

@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
 	FiExternalLink,
 	FiX,
-	FiDownload,
 	FiCheckCircle,
 	FiAward,
 	FiUsers,
@@ -301,18 +300,6 @@ function CertificateModal({ cert, onClose }) {
 								</p>
 							</div>
 						</div>
-						<a
-							href={cert.img}
-							download
-							className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl
-								bg-gray-900 dark:bg-white
-								text-white dark:text-gray-900 text-sm font-semibold
-								hover:bg-gray-700 dark:hover:bg-gray-100
-								transition-colors duration-200"
-						>
-							<FiDownload className="w-4 h-4" />
-							Download
-						</a>
 					</div>
 				</div>
 			</motion.div>
@@ -350,7 +337,7 @@ function Certificate() {
 	};
 
 	return (
-		<section id="certificate" className="min-h-screen relative z-0">
+		<section id="certificate" className="relative z-0">
 			<div className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16">
 				<motion.div
 					initial={{ opacity: 0, y: 60 }}

@@ -17,10 +17,10 @@ function App() {
 			className="bg-white dark:bg-gray-900 min-h-screen transition-colors duration-500"
 		>
 			<DarkModeToggle />
-			<Home />
-			<About />
 			<NavBar />
+			<Home />
 			<Education />
+			<About />
 			<Job />
 			<Certificate />
 			<Footer />

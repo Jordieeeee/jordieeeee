@@ -206,7 +206,7 @@ function Home() {
 				pb-32
 			"
 		>
-			<div className="min-h-screen flex items-center justify-center px-3 sm:px-4 md:px-6">
+			<div className="w-full flex items-center justify-center px-3 sm:px-4 md:px-6">
 				<style>{`
 				.typing-cursor {
 					animation: blink 1s ease-in-out infinite;

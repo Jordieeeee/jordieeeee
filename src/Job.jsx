@@ -85,7 +85,7 @@ function Job() {
 	);
 
 	return (
-		<section id="work" className="min-h-screen">
+		<section id="work">
 			<div className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16">
 				<motion.div
 					initial={{ opacity: 0, y: 60 }}

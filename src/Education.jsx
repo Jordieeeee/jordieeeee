@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FiBookOpen } from "react-icons/fi";
+import { FiBookOpen, FiGithub, FiExternalLink } from "react-icons/fi";
 import { useRef } from "react";
 import TiltCard from "./components/TiltCard";
 import portfolio1 from "./assets/proj/1stPortfolio/portfolio1.webp";
@@ -108,18 +108,14 @@ const ImageCarousel = ({ images, title, dateBadge }) => {
 										alt={`${title} - ${imgIndex + 1}`}
 										loading="lazy"
 										decoding="async"
-										style={{
+										style={{ 
 											transition: "opacity 0.3s ease",
 											opacity: 1,
 											width: "100%",
 											height: "100%",
-											objectFit: "cover",
+											objectFit: "cover"
 										}}
-										className={
-											isFront
-												? "group-hover:scale-105 transition-transform duration-700 ease-out"
-												: ""
-										}
+										className={isFront ? "group-hover:scale-105 transition-transform duration-700 ease-out" : ""}
 									/>
 									{isFront && (
 										<>
@@ -177,6 +173,9 @@ function ProjectCard({
 	images,
 	date,
 	slideFrom,
+	repo,
+	live,
+	note,
 }) {
 	return (
 		<motion.div
@@ -223,6 +222,50 @@ function ProjectCard({
 						</span>
 					))}
 				</div>
+
+				{/* Links — always visible, never hover-gated */}
+				<div className="flex items-center gap-2 mt-3.5 pt-3 border-t border-gray-100 dark:border-gray-800">
+					{repo && (
+						<a
+							href={repo}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center justify-center gap-1.5 flex-1
+								px-3 py-2 rounded-xl text-xs font-semibold
+								bg-gray-900 dark:bg-white
+								text-white dark:text-gray-900
+								hover:bg-gray-700 dark:hover:bg-gray-100
+								transition-[background-color,transform] duration-150 ease-out
+								active:scale-[0.97]"
+						>
+							<FiGithub className="w-3.5 h-3.5" />
+							Code
+						</a>
+					)}
+					{live && (
+						<a
+							href={live}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center justify-center gap-1.5 flex-1
+								px-3 py-2 rounded-xl text-xs font-semibold
+								bg-white dark:bg-gray-800
+								border border-gray-200 dark:border-gray-700
+								text-gray-700 dark:text-gray-200
+								hover:bg-gray-50 dark:hover:bg-gray-700
+								transition-[background-color,transform] duration-150 ease-out
+								active:scale-[0.97]"
+						>
+							<FiExternalLink className="w-3.5 h-3.5" />
+							Live
+						</a>
+					)}
+					{!repo && !live && note && (
+						<span className="text-[11px] text-gray-400 dark:text-gray-500 py-1">
+							{note}
+						</span>
+					)}
+				</div>
 			</div>
 		</motion.div>
 	);
@@ -248,6 +291,7 @@ function Projects() {
 			tags: ["Java", "MySQL", "OOP"],
 			images: [time1, time2, time3],
 			slideFrom: "left",
+			note: "Source not yet published",
 		},
 		{
 			id: "project-thrift-shop",
@@ -258,6 +302,8 @@ function Projects() {
 			tags: ["HTML", "CSS", "Tailwind CSS", "MySQL"],
 			images: [thrift1, thrift2, thrift3, thrift4, thrift5],
 			slideFrom: "right",
+			repo: "https://github.com/Jordieeeee/ThriftStore",
+			live: "https://thrift-store-seven.vercel.app",
 		},
 		{
 			title: "Portfolio Website",
@@ -267,6 +313,7 @@ function Projects() {
 			tags: ["HTML", "CSS", "Tailwind CSS"],
 			images: [portfolio1, portfolio2, portfolio3, portfolio4],
 			slideFrom: "left",
+			note: "Source not yet published",
 		},
 		{
 			id: "project-bat-cafe",
@@ -288,6 +335,7 @@ function Projects() {
 				cafe10,
 			],
 			slideFrom: "right",
+			repo: "https://github.com/Jordieeeee/cafe",
 		},
 		{
 			id: "project-vehicle-rental",
@@ -309,6 +357,7 @@ function Projects() {
 				rental10,
 			],
 			slideFrom: "left",
+			repo: "https://github.com/Jordieeeee/vehicle-rental",
 		},
 	];
 
@@ -346,7 +395,7 @@ function Projects() {
 	];
 
 	return (
-		<section id="education" className="min-h-screen relative z-0">
+		<section id="education" className="relative z-0">
 			<div className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16">
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
@@ -362,7 +411,7 @@ function Projects() {
 
 					{/* ── Section 1: Education ── */}
 					<motion.div
-						variants={staggerVariants}
+					variants={staggerVariants}
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true }}
@@ -402,10 +451,7 @@ function Projects() {
 							</motion.div>
 
 							{/* Focus Areas */}
-							<motion.div
-								variants={fadeUpVariants}
-								className="lg:w-60 shrink-0"
-							>
+							<motion.div variants={fadeUpVariants} className="lg:w-60 shrink-0">
 								<p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
 									Focus Areas
 								</p>
@@ -431,7 +477,7 @@ function Projects() {
 
 					{/* ── Section 2: Key Skills ── */}
 					<motion.div
-						variants={staggerVariants}
+					variants={staggerVariants}
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true }}
@@ -446,10 +492,7 @@ function Projects() {
 								Key Skills Learned
 							</h3>
 						</motion.div>
-						<motion.div
-							variants={fadeUpVariants}
-							className="flex flex-wrap gap-2"
-						>
+						<motion.div variants={fadeUpVariants} className="flex flex-wrap gap-2">
 							{[
 								"Object-Oriented Programming",
 								"Database Design",
