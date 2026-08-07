@@ -1,14 +1,14 @@
 {
   "stats": {
-    "repos": 27,
+    "repos": 9,
     "contributed": 1,
     "stars": 0,
     "followers": 9,
-    "commits": 355,
-    "languages": 7,
-    "added": 1200136,
-    "deleted": 278252,
-    "net": 921884
+    "commits": 114,
+    "languages": 5,
+    "added": 836679,
+    "deleted": 255256,
+    "net": 581423
   },
   "loc": {
     "Jordieeeee/project-monitoring": {
@@ -17,9 +17,9 @@
       "del": 266
     },
     "Jordieeeee/jordieeeee": {
-      "key": "Jordieeeee/jordieeeee@2026-08-02T07:08:42Z",
-      "add": 14869,
-      "del": 5485
+      "key": "Jordieeeee/jordieeeee@2026-08-07T07:46:09Z",
+      "add": 15820,
+      "del": 5526
     },
     "Jordieeeee/TWD-ADMIN": {
       "key": "Jordieeeee/TWD-ADMIN@2026-07-31T06:59:21Z",
