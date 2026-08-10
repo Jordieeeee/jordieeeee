@@ -6,17 +6,17 @@
   <img alt="Mark Jordan Javier — full stack web developer based in Batangas, Philippines. AI integration, React, Next.js, Node.js, PostgreSQL, PHP, MySQL." src="./assets/neofetch-dark.svg" width="98[...]
 </picture>
 
-<a href="https://jordiee.me" title="Visit my website">
-  <img src="./assets/icons/website.svg" alt="Website" width="40" height="40" />
+<a href="https://jordiee.me">
+  <img src="https://img.shields.io/badge/Website-000?style=for-the-badge&logo=data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3C/svg%3E" alt="Website" />
 </a>
-<a href="https://www.linkedin.com/in/mark-jordan-javier-29b72935a/" title="Connect on LinkedIn">
-  <img src="./assets/icons/linkedin.svg" alt="LinkedIn" width="40" height="40" />
+<a href="https://www.linkedin.com/in/mark-jordan-javier-29b72935a/">
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
 </a>
-<a href="mailto:javiermarkjordan@gmail.com" title="Send me an email">
-  <img src="./assets/icons/email.svg" alt="Email" width="40" height="40" />
+<a href="mailto:javiermarkjordan@gmail.com">
+  <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail" alt="Email" />
 </a>
-<a href="https://calendly.com/javier..." title="Book a call">
-  <img src="./assets/icons/calendar.svg" alt="Book a call" width="40" height="40" />
+<a href="https://calendly.com/javier...">
+  <img src="https://img.shields.io/badge/Calendar-4285F4?style=for-the-badge&logo=google-calendar" alt="Book a call" />
 </a>
 
 </div>
