@@ -656,7 +656,7 @@
 </g>
 <g font-size="12.5">
 <text x="685.2" y="111.1" font-weight="700"><tspan fill="#7ee787">jordiee</tspan><tspan fill="#c9d1d9">@</tspan><tspan fill="#79c0ff">macbook</tspan></text>
-<line x1="685.2" y1="120.1.5" x2="1177.2" y2="120.1.5" stroke="#30363d" stroke-width="1"/>
+<line x1="685.2" y1="120.15" x2="1177.2" y2="120.15" stroke="#30363d" stroke-width="1"/>
 <text x="685.2" y="149.1" fill="#ffa657" font-weight="700">Name</text>
 <text x="799.2" y="149.1" fill="#c9d1d9">Mark Jordan B. Javier</text>
 <text x="685.2" y="168.1" fill="#ffa657" font-weight="700">Role</text>
@@ -676,43 +676,45 @@
 <text x="799.2" y="322.0" fill="#c9d1d9">Node.js · Express.js · Prisma · REST APIs</text>
 <text x="685.2" y="341.0" fill="#ffa657" font-weight="700">Data</text>
 <text x="799.2" y="341.0" fill="#c9d1d9">PostgreSQL · MySQL · MongoDB · Supabase</text>
-<text x="685.2" y="360.0" fill="#ffa657" font-weight="700">AI / ML</text>
-<text x="799.2" y="360.0" fill="#c9d1d9">TensorFlow Lite · XGBoost · MobileNetV2</text>
-<text x="685.2" y="379.0" fill="#ffa657" font-weight="700">Automation</text>
-<text x="799.2" y="379.0" fill="#c9d1d9">n8n · Docker </text>
-<text x="685.2" y="398.0" fill="#ffa657" font-weight="700">Design</text>
-<text x="799.2" y="398.0" fill="#c9d1d9">Figma · Prettier</text>
-<text x="685.2" y="417.0" fill="#ffa657" font-weight="700">Tools</text>
-<text x="799.2" y="417.0" fill="#c9d1d9">Git · GitHub · Postman · Power BI</text>
-<text x="685.2" y="436.0" fill="#ffa657" font-weight="700">Editors</text>
-<text x="799.2" y="436.0" fill="#c9d1d9">VS Code · Cursor · IntelliJ IDEA · PyCharm</text>
-<text x="799.2" y="455.0" fill="#c9d1d9">NetBeans · Xcode</text>
-<text x="685.2" y="484.45" fill="#ffa657" font-weight="700">Capstone</text>
-<text x="799.2" y="484.45" fill="#c9d1d9">Integrated Payroll &amp; Mobile Commercial System</text>
-<text x="799.2" y="503.45" fill="#c9d1d9">for Tanauan City Water District</text>
-<text x="685.2" y="522.45" fill="#ffa657" font-weight="700">Client work</text>
-<text x="799.2" y="522.45" fill="#c9d1d9">TWD Project Monitoring System</text>
-<text x="685.2" y="541.45" fill="#ffa657" font-weight="700">Projects</text>
-<text x="799.2" y="541.45" fill="#c9d1d9">School Evaluation System · Vehicle Rental System</text>
-<text x="799.2" y="560.45" fill="#c9d1d9">Online Thrift Shop · Malvar Bat Cave Café</text>
-<text x="799.2" y="579.45" fill="#c9d1d9">Time Scheduling System · Portfolio Website</text>
-<text x="685.2" y="608.9" fill="#ffa657" font-weight="700">Certified</text>
-<text x="799.2" y="608.9" fill="#c9d1d9">Claude 101 · Claude Code in Action · Agent Skills</text>
-<text x="799.2" y="627.9" fill="#c9d1d9">Anthropic · 2026</text>
-<text x="799.2" y="646.9" fill="#c9d1d9">Microsoft Power BI Data Analyst · 2025</text>
-<text x="685.2" y="665.9" fill="#ffa657" font-weight="700">Conferences</text>
-<text x="799.2" y="665.9" fill="#c9d1d9">DataBiz 2024 · DataBiz 2025 · BITCON 2025</text>
-<text x="799.2" y="684.9" fill="#c9d1d9">TechTalks S3 · CICS Student Council · 2025</text>
-<text x="685.2" y="714.35" fill="#ffa657" font-weight="700">Currently</text>
-<text x="799.2" y="714.35" fill="#c9d1d9">Capstone development · open to internships</text>
-<text x="685.2" y="743.8" fill="#ffa657" font-weight="700">Portfolio</text>
-<text x="799.2" y="743.8" fill="#c9d1d9">www.jordiee.dev</text>
-<text x="685.2" y="762.8" fill="#ffa657" font-weight="700">GitHub</text>
-<text x="799.2" y="762.8" fill="#c9d1d9">github.com/Jordieeeee</text>
-<text x="685.2" y="781.8" fill="#ffa657" font-weight="700">Email</text>
-<text x="799.2" y="781.8" fill="#c9d1d9">javiermarkjordan@gmail.com</text>
-<line x1="685.2" y1="795.1" x2="1177.2" y2="795.1" stroke="#30363d" stroke-width="1"/>
-<text x="685.2" y="811.25" fill="#8b949e" font-style="italic" font-size="12.5">"Never stop learning; every day holds something new to discover."</text>
+<text x="685.2" y="360.0" fill="#ffa657" font-weight="700">Cloud</text>
+<text x="799.2" y="360.0" fill="#c9d1d9">AWS · GCP · Azure · Oracle · Cloudflare</text>
+<text x="685.2" y="379.0" fill="#ffa657" font-weight="700">AI / ML</text>
+<text x="799.2" y="379.0" fill="#c9d1d9">TensorFlow Lite · XGBoost · MobileNetV2</text>
+<text x="685.2" y="398.0" fill="#ffa657" font-weight="700">Automation</text>
+<text x="799.2" y="398.0" fill="#c9d1d9">n8n · Docker </text>
+<text x="685.2" y="417.0" fill="#ffa657" font-weight="700">Design</text>
+<text x="799.2" y="417.0" fill="#c9d1d9">Figma · Prettier</text>
+<text x="685.2" y="436.0" fill="#ffa657" font-weight="700">Tools</text>
+<text x="799.2" y="436.0" fill="#c9d1d9">Git · GitHub · Postman · Power BI</text>
+<text x="685.2" y="455.0" fill="#ffa657" font-weight="700">Editors</text>
+<text x="799.2" y="455.0" fill="#c9d1d9">VS Code · Cursor · IntelliJ IDEA · PyCharm</text>
+<text x="799.2" y="474.0" fill="#c9d1d9">NetBeans · Xcode</text>
+<text x="685.2" y="503.45" fill="#ffa657" font-weight="700">Capstone</text>
+<text x="799.2" y="503.45" fill="#c9d1d9">Integrated Payroll &amp; Mobile Commercial System</text>
+<text x="799.2" y="522.45" fill="#c9d1d9">for Tanauan City Water District</text>
+<text x="685.2" y="541.45" fill="#ffa657" font-weight="700">Client work</text>
+<text x="799.2" y="541.45" fill="#c9d1d9">TWD Project Monitoring System</text>
+<text x="685.2" y="560.45" fill="#ffa657" font-weight="700">Projects</text>
+<text x="799.2" y="560.45" fill="#c9d1d9">School Evaluation System · Vehicle Rental System</text>
+<text x="799.2" y="579.45" fill="#c9d1d9">Online Thrift Shop · Malvar Bat Cave Café</text>
+<text x="799.2" y="598.45" fill="#c9d1d9">Time Scheduling System · Portfolio Website</text>
+<text x="685.2" y="627.9" fill="#ffa657" font-weight="700">Certified</text>
+<text x="799.2" y="627.9" fill="#c9d1d9">Claude 101 · Claude Code in Action · Agent Skills</text>
+<text x="799.2" y="646.9" fill="#c9d1d9">Anthropic · 2026</text>
+<text x="799.2" y="665.9" fill="#c9d1d9">Microsoft Power BI Data Analyst · 2025</text>
+<text x="685.2" y="684.9" fill="#ffa657" font-weight="700">Conferences</text>
+<text x="799.2" y="684.9" fill="#c9d1d9">DataBiz 2024 · DataBiz 2025 · BITCON 2025</text>
+<text x="799.2" y="703.9" fill="#c9d1d9">TechTalks S3 · CICS Student Council · 2025</text>
+<text x="685.2" y="733.35" fill="#ffa657" font-weight="700">Currently</text>
+<text x="799.2" y="733.35" fill="#c9d1d9">Capstone development · open to internships</text>
+<text x="685.2" y="762.8" fill="#ffa657" font-weight="700">Portfolio</text>
+<text x="799.2" y="762.8" fill="#c9d1d9">www.jordiee.dev</text>
+<text x="685.2" y="781.8" fill="#ffa657" font-weight="700">GitHub</text>
+<text x="799.2" y="781.8" fill="#c9d1d9">github.com/Jordieeeee</text>
+<text x="685.2" y="800.8" fill="#ffa657" font-weight="700">Email</text>
+<text x="799.2" y="800.8" fill="#c9d1d9">javiermarkjordan@gmail.com</text>
+<line x1="685.2" y1="814.1" x2="1177.2" y2="814.1" stroke="#30363d" stroke-width="1"/>
+<text x="685.2" y="830.25" fill="#8b949e" font-style="italic" font-size="12.5">"Never stop learning; every day holds something new to discover."</text>
 </g>
 <text x="26" y="922" font-size="12.5" font-weight="700" xml:space="preserve" style="white-space:pre"><tspan fill="#7ee787">jordiee@macbook</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#79c0ff">~/github</tspan><tspan fill="#8b949e">$ </tspan><tspan fill="#7ee787">█</tspan></text>
 </svg>
