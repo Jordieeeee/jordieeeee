@@ -676,6 +676,8 @@
 <text x="799.2" y="322.0" fill="#c9d1d9">Node.js · Express.js · Prisma · REST APIs</text>
 <text x="685.2" y="341.0" fill="#ffa657" font-weight="700">Data</text>
 <text x="799.2" y="341.0" fill="#c9d1d9">PostgreSQL · MySQL · MongoDB · Supabase</text>
+<text x="685.2" y="341.0" fill="#ffa657" font-weight="700">Cloud</text>
+<text x="799.2" y="341.0" fill="#c9d1d9">AWS · GCP · Azure · Oracle · CLoudflare</text>
 <text x="685.2" y="360.0" fill="#ffa657" font-weight="700">AI / ML</text>
 <text x="799.2" y="360.0" fill="#c9d1d9">TensorFlow Lite · XGBoost · MobileNetV2</text>
 <text x="685.2" y="379.0" fill="#ffa657" font-weight="700">Automation</text>
